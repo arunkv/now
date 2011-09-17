@@ -1,21 +1,24 @@
-Get NowJS
+Get NowJS http://www.nowjs.org/
 =========
-NowJS is a NodeJS module. The client javascript (now.js) is served by the NowJS server.
+
+###NowJS makes realtime web apps really easy.
 
 
 <a href="https://github.com/Flotype/now/">Go to Github</a> or 
-<a href="https://github.com/Flotype/now/tarball/master">Download the tgz</a>
+<a href="https://github.com/Flotype/now/tarball/master">Download the master tgz</a>
 
 
 Install From npm
 ----------------
 
-`npm install now`
+`npm install now` or `npm install now -g` to install globally
 
 
 
-NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">socket.io</a> and <a href="https://github.com/isaacs/node-proxy">node-proxy</a> libraries and portions of <a href="https://github.com/substack/node-sesame">sesame</a>. <a href="https://github.com/douglascrockford/JSON-js">json2.js</a> is integrated in nowUtil.js
+NowJS is a Node.js module. The client javascript (now.js) is served by the NowJS server.
 
+
+NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">socket.io</a> and <a href="https://github.com/isaacs/node-proxy">node-proxy</a> libraries.
 
 2 Step Setup
 ==============
@@ -26,8 +29,12 @@ NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">
     var httpServer = require('http').createServer(function(req, response){ /* Serve your static files */ })
     httpServer.listen(8080);
     
-    var everyone = require("now").initialize(httpServer);
-    everyone.now.msg = "Hello World!";
+    var nowjs = require("now");
+    var everyone = nowjs.initialize(httpServer);
+    
+    everyone.now.logStuff = function(msg){
+        console.log(msg);
+    }
     
 **2. On the client**
 <pre><code>
@@ -35,8 +42,8 @@ NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">
 
 &lt;script type="text/javascript"&gt;
   now.ready(function(){
-    // alerts "Hello World!"
-    alert(now.msg);
+    // "Hello World!" will print on server
+    now.logStuff("Hello World!");
   });
 &lt;/script>
 </code></pre>
@@ -44,7 +51,7 @@ NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">
 FAQ
 -------
 
-**Q: Can I pass in a callback or closure, for example, if the remote function is asynchronous??**
+**Q: Can I pass in a callback or closure, for example, if the remote function is asynchronous?**
 
 A: Yes. This is 100% supported
 
@@ -68,11 +75,11 @@ You do not need to host the file /nowjs/now.js. It is automatically hosted by th
 Further Reading
 ---------------
 
-Now that you have NowJS, try the NowJS [User Manual](http://nowjs.com/doc) and [Quick Chat Example](http://nowjs.com/guide) 
+Now that you have NowJS, try the NowJS [User Manual](http://nowjs.org/doc) and [Quick Chat Example](http://nowjs.org/guide) 
 
 Have more questions? Please contact us:
-Email: team@nowjs.com
+Email: team@nowjs.org
 
-IRC: #nowjs on freenode
+IRC: [#nowjs on freenode](http://webchat.freenode.net/?nick=nowjs.&channels=nowjs)
 
-Twitter: @NowJSTeam
+Twitter: [@NowJSTeam](http://twitter.com/nowjsteam)

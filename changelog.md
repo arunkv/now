@@ -1,4 +1,94 @@
-NowJS Version 0.3
+NowJS Version 0.7.4 - 8/04/2011
+---------------------------
+Changes since 0.7.3:
+
+* NowJS client lib can now be used directly without modification. Use `nowInitialize('http://uri:80/', [options]);` to start a connection manually
+* Arrays are now handled properly on the server-side.
+* Fixed deletion of objects on the server-side.
+* Terminal non-leaf nodes are now properly synchronized and sent to clients.
+* Various other bugfixes and optimizations.
+
+NowJS Version 0.7.3 - 7/26/2011
+---------------------------
+Changes since 0.7.2:
+
+* Fixed array passed in as options failing (for socket.io transports options)
+* Exclude supports passing in single clientId
+* Deletevar bug, GH #111, which prevented initializing fields in `now` to empty objects
+* Improved documentation
+
+
+NowJS Version 0.7.2 - 7/22/2011
+---------------------------
+Changes since 0.7.1:
+
+* Fix broken exclude
+
+
+NowJS Version 0.7.1 - 7/22/2011
+---------------------------
+Changes since 0.7.0:
+
+* Fix bugs in handlers for numeric group name
+* Fixed duplicate rv messages
+* Added documentation
+
+
+NowJS Version 0.7.0 - 7/16/2011
+---------------------------
+Changes since 0.6.1:
+
+* Socket.IO dependency updated to >= 0.7.
+* `group.exclude()` implemented. [Usage](http://nowjs.com/jsdoc/symbols/Group.html#exclude)
+* `group.hasClient()`, `group.count` modified to be asynchronous
+  functions. [Usage](http://nowjs.com/jsdoc/symbols/Group.html#count)
+* Exposed more client-side events.
+* `everyone.on('join', cb)` and `everyone.on('leave', cb)` have
+  replaced of `nowjs.on('connect', cb)` and `nowjs.on('disconnect', cb)`
+  (and their aliases, `nowjs.connected(cb)` and `nowjs.disconnected(cb)`).
+* Even more performance increases.
+* [Added JSDoc documentation](http://nowjs.com/jsdoc/index.html)
+
+NowJS Version 0.6.1 - 6/10/2011
+---------------------------
+
+Changes since 0.6:
+
+* Socket.IO dependency updated to 0.6.18.
+* Reconnects implemented.
+* More bug fixes and performance increases.
+
+NowJS Version 0.6 - 5/14/2011
+---------------------------
+
+Changes since 0.5:
+
+* Socket.IO dependency updated to 0.6.17.
+* .hasClient(id) and .count added to ClientGroups.
+*  See API documentation for further information.
+* Various bug fixes and performance increases.
+
+NowJS Version 0.5 - 4/8/2011
+---------------------------
+
+Changes since 0.3:
+
+* initialize() optionally accepts `options` parameter.
+*  It is possible to set a custom host/port combination in now.js using `options.host` and `options.port`. This overrides the default auto-detected settings.
+*  The object set at `options.socketio` is passed to socket.io as a configuration parameter.
+* Clients can optionally be prevented from making changes to their now namespace. To enable, set the `options.clientWrite` flag to `false` in the options parameter to `initialize()`
+* Users can be added to groups other than `everyone`. Usage of this API is documented in the User Manual.
+
+Bug fixes since 0.3:
+
+* IE compatibility enhanced
+* Events properly handled
+
+NowJS Version 0.4
+---------------------------
+* Various bug fixes and performance issues
+
+NowJS Version 0.3 - 3/18/2011
 ---------------------------
 
 Changes since version 0.2:
@@ -28,7 +118,7 @@ Bug fixes since version 0.2:
 *   Bugs resulting in cross-port setups not working have been fixed
 
 
-NowJS Version 0.2
+NowJS Version 0.2 - 3/11/2011
 ---------------------------
 
 Changes since version 0.1:
